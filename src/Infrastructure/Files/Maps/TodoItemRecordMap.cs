@@ -1,15 +1,15 @@
-﻿using CleanArchitecture.Application.TodoLists.Queries.ExportTodos;
+﻿using System.Globalization;
 using CsvHelper.Configuration;
-using System.Globalization;
+using GiraffeMissile.Application.TodoLists.Queries.ExportTodos;
 
-namespace CleanArchitecture.Infrastructure.Files.Maps
+namespace GiraffeMissile.Infrastructure.Files.Maps
 {
     public class TodoItemRecordMap : ClassMap<TodoItemRecord>
     {
         public TodoItemRecordMap()
         {
             AutoMap(CultureInfo.InvariantCulture);
-            Map(m => m.Done).ConvertUsing(c => c.Done ? "Yes" : "No");
+            Map(m => m.Done).Convert(c => c.Value.Done ? "Yes" : "No");
         }
     }
 }

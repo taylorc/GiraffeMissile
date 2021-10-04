@@ -1,13 +1,13 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
-using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Domain.Entities;
+﻿using GiraffeMissile.Application.Common.Exceptions;
+using GiraffeMissile.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using GiraffeMissile.Domain.Entities;
 
-namespace CleanArchitecture.Application.TodoLists.Commands.DeleteTodoList
+namespace GiraffeMissile.Application.TodoLists.Commands.DeleteTodoList
 {
     public class DeleteTodoListCommand : IRequest
     {

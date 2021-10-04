@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CleanArchitecture.Application.Common.Mappings;
-using CleanArchitecture.Domain.Entities;
+using GiraffeMissile.Application.Common.Mappings;
+using GiraffeMissile.Domain.Entities;
 
-namespace CleanArchitecture.Application.TodoLists.Queries.GetTodos
+namespace GiraffeMissile.Application.TodoLists.Queries.GetTodos
 {
     public class TodoItemDto : IMapFrom<TodoItem>
     {

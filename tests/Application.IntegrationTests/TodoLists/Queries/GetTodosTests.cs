@@ -1,12 +1,12 @@
-﻿using CleanArchitecture.Application.TodoLists.Queries.GetTodos;
-using CleanArchitecture.Domain.Entities;
-using CleanArchitecture.Domain.ValueObjects;
-using FluentAssertions;
-using NUnit.Framework;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using FluentAssertions;
+using GiraffeMissile.Application.TodoLists.Queries.GetTodos;
+using GiraffeMissile.Domain.Entities;
+using GiraffeMissile.Domain.ValueObjects;
+using NUnit.Framework;
 
-namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Queries
+namespace GiraffeMissile.Application.IntegrationTests.TodoLists.Queries
 {
     using static Testing;
 

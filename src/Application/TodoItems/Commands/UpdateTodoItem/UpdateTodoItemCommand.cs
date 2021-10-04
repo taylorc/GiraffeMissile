@@ -1,11 +1,11 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
-using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Domain.Entities;
+﻿using GiraffeMissile.Application.Common.Exceptions;
+using GiraffeMissile.Application.Common.Interfaces;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using GiraffeMissile.Domain.Entities;
 
-namespace CleanArchitecture.Application.TodoItems.Commands.UpdateTodoItem
+namespace GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItem
 {
     public class UpdateTodoItemCommand : IRequest
     {

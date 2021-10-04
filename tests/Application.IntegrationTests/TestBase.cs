@@ -1,7 +1,8 @@
-﻿using NUnit.Framework;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using GiraffeMissile.Application.IntegrationTests;
+using NUnit.Framework;
 
-namespace CleanArchitecture.Application.IntegrationTests
+namespace GiraffeMissile.Application.IntegrationTests
 {
     using static Testing;
 

@@ -1,5 +1,4 @@
-using CleanArchitecture.Infrastructure.Identity;
-using CleanArchitecture.Infrastructure.Persistence;
+using GiraffeMissile.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -8,8 +7,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
+using GiraffeMissile.Infrastructure.Identity;
+using GiraffeMissile.Infrastructure.Persistence;
 
-namespace CleanArchitecture.WebUI
+namespace GiraffeMissile.WebUI
 {
     public class Program
     {

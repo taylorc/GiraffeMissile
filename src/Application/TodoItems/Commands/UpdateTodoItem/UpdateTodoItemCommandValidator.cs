@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CleanArchitecture.Application.TodoItems.Commands.UpdateTodoItem
+namespace GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItem
 {
     public class UpdateTodoItemCommandValidator : AbstractValidator<UpdateTodoItemCommand>
     {

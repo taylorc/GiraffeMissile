@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
+﻿using GiraffeMissile.Application.Common.Interfaces;
 using System;
 
-namespace CleanArchitecture.Infrastructure.Services
+namespace GiraffeMissile.Infrastructure.Services
 {
     public class DateTimeService : IDateTime
     {

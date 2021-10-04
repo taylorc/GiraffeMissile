@@ -1,12 +1,12 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Application.Common.Models;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using GiraffeMissile.Application.Common.Interfaces;
+using GiraffeMissile.Application.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CleanArchitecture.Infrastructure.Identity
+namespace GiraffeMissile.Infrastructure.Identity
 {
     public class IdentityService : IIdentityService
     {

@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Domain.Enums
+﻿namespace GiraffeMissile.Domain.Enums
 {
     public enum PriorityLevel
     {

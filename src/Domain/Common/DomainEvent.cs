@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CleanArchitecture.Domain.Common
+namespace GiraffeMissile.Domain.Common
 {
     public interface IHasDomainEvent
     {

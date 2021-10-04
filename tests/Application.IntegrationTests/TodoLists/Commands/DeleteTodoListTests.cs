@@ -1,12 +1,12 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
-using CleanArchitecture.Application.TodoLists.Commands.CreateTodoList;
-using CleanArchitecture.Application.TodoLists.Commands.DeleteTodoList;
-using CleanArchitecture.Domain.Entities;
+﻿using System.Threading.Tasks;
 using FluentAssertions;
+using GiraffeMissile.Application.Common.Exceptions;
+using GiraffeMissile.Application.TodoLists.Commands.CreateTodoList;
+using GiraffeMissile.Application.TodoLists.Commands.DeleteTodoList;
+using GiraffeMissile.Domain.Entities;
 using NUnit.Framework;
-using System.Threading.Tasks;
 
-namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
+namespace GiraffeMissile.Application.IntegrationTests.TodoLists.Commands
 {
     using static Testing;
 
@@ -18,7 +18,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
             var command = new DeleteTodoListCommand { Id = 99 };
 
             FluentActions.Invoking(() =>
-                SendAsync(command)).Should().Throw<NotFoundException>();
+                SendAsync(command)).Should().ThrowAsync<NotFoundException>();
         }
 
         [Test]

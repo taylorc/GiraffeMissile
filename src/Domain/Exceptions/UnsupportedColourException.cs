@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CleanArchitecture.Domain.Exceptions
+namespace GiraffeMissile.Domain.Exceptions
 {
     public class UnsupportedColourException : Exception
     {

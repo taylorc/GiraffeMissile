@@ -1,15 +1,14 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
-using CleanArchitecture.Application.Common.Security;
-using CleanArchitecture.Application.TodoLists.Commands.CreateTodoList;
-using CleanArchitecture.Application.TodoLists.Commands.PurgeTodoLists;
-using CleanArchitecture.Application.TodoLists.Queries.ExportTodos;
-using CleanArchitecture.Domain.Entities;
-using FluentAssertions;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using FluentAssertions;
+using GiraffeMissile.Application.Common.Exceptions;
+using GiraffeMissile.Application.Common.Security;
+using GiraffeMissile.Application.TodoLists.Commands.CreateTodoList;
+using GiraffeMissile.Application.TodoLists.Commands.PurgeTodoLists;
+using GiraffeMissile.Domain.Entities;
+using NUnit.Framework;
 
-namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
+namespace GiraffeMissile.Application.IntegrationTests.TodoLists.Commands
 {
     using static Testing;
 
@@ -23,7 +22,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
             command.GetType().Should().BeDecoratedWith<AuthorizeAttribute>();
 
             FluentActions.Invoking(() =>
-                SendAsync(command)).Should().Throw<UnauthorizedAccessException>();
+                SendAsync(command)).Should().ThrowAsync<UnauthorizedAccessException>();
         }
 
         [Test]
@@ -33,8 +32,8 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
 
             var command = new PurgeTodoListsCommand();
 
-            FluentActions.Invoking(() =>
-                SendAsync(command)).Should().Throw<ForbiddenAccessException>();
+            await FluentActions.Invoking(() =>
+                SendAsync(command)).Should().ThrowAsync<ForbiddenAccessException>();
         }
 
         [Test]
@@ -44,8 +43,8 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
 
             var command = new PurgeTodoListsCommand();
 
-            FluentActions.Invoking(() => SendAsync(command))
-                .Should().NotThrow<ForbiddenAccessException>();
+            await FluentActions.Invoking(() => SendAsync(command))
+                .Should().NotThrowAsync<ForbiddenAccessException>();
         }
 
         [Test]

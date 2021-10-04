@@ -1,13 +1,13 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
-using CleanArchitecture.Application.TodoItems.Commands.CreateTodoItem;
-using CleanArchitecture.Application.TodoLists.Commands.CreateTodoList;
-using CleanArchitecture.Domain.Entities;
-using FluentAssertions;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using FluentAssertions;
+using GiraffeMissile.Application.Common.Exceptions;
+using GiraffeMissile.Application.TodoItems.Commands.CreateTodoItem;
+using GiraffeMissile.Application.TodoLists.Commands.CreateTodoList;
+using GiraffeMissile.Domain.Entities;
+using NUnit.Framework;
 
-namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
+namespace GiraffeMissile.Application.IntegrationTests.TodoItems.Commands
 {
     using static Testing;
 
@@ -19,7 +19,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
             var command = new CreateTodoItemCommand();
 
             FluentActions.Invoking(() =>
-                SendAsync(command)).Should().Throw<ValidationException>();
+                SendAsync(command)).Should().ThrowAsync<ValidationException>();
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
             item.ListId.Should().Be(command.ListId);
             item.Title.Should().Be(command.Title);
             item.CreatedBy.Should().Be(userId);
-            item.Created.Should().BeCloseTo(DateTime.Now, 10000);
+            item.Created.Should().BeCloseTo(DateTime.Now, new TimeSpan(0,0,0,5));
             item.LastModifiedBy.Should().BeNull();
             item.LastModified.Should().BeNull();
         }

@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Application.Common.Mappings;
-using CleanArchitecture.Domain.Entities;
+﻿using GiraffeMissile.Application.Common.Mappings;
+using GiraffeMissile.Domain.Entities;
 
-namespace CleanArchitecture.Application.TodoLists.Queries.ExportTodos
+namespace GiraffeMissile.Application.TodoLists.Queries.ExportTodos
 {
     public class TodoItemRecord : IMapFrom<TodoItem>
     {

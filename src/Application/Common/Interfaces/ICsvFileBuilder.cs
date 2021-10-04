@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Application.TodoLists.Queries.ExportTodos;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using GiraffeMissile.Application.TodoLists.Queries.ExportTodos;
 
-namespace CleanArchitecture.Application.Common.Interfaces
+namespace GiraffeMissile.Application.Common.Interfaces
 {
     public interface ICsvFileBuilder
     {

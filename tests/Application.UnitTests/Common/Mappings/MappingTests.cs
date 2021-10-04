@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using CleanArchitecture.Application.Common.Mappings;
-using CleanArchitecture.Application.TodoLists.Queries.GetTodos;
-using CleanArchitecture.Domain.Entities;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Runtime.Serialization;
+using AutoMapper;
+using GiraffeMissile.Application.Common.Mappings;
+using GiraffeMissile.Application.TodoLists.Queries.GetTodos;
+using GiraffeMissile.Domain.Entities;
+using NUnit.Framework;
 
-namespace CleanArchitecture.Application.UnitTests.Common.Mappings
+namespace GiraffeMissile.Application.UnitTests.Common.Mappings
 {
     public class MappingTests
     {

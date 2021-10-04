@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Domain.Common;
-using CleanArchitecture.Domain.Entities;
+﻿using GiraffeMissile.Domain.Common;
+using GiraffeMissile.Domain.Entities;
 
-namespace CleanArchitecture.Domain.Events
+namespace GiraffeMissile.Domain.Events
 {
     public class TodoItemCompletedEvent : DomainEvent
     {

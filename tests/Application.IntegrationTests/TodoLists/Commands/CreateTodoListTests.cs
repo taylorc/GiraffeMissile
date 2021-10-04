@@ -1,12 +1,12 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
-using CleanArchitecture.Application.TodoLists.Commands.CreateTodoList;
-using CleanArchitecture.Domain.Entities;
-using FluentAssertions;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using FluentAssertions;
+using GiraffeMissile.Application.Common.Exceptions;
+using GiraffeMissile.Application.TodoLists.Commands.CreateTodoList;
+using GiraffeMissile.Domain.Entities;
+using NUnit.Framework;
 
-namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
+namespace GiraffeMissile.Application.IntegrationTests.TodoLists.Commands
 {
     using static Testing;
 
@@ -18,7 +18,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
             var command = new CreateTodoListCommand();
 
             FluentActions.Invoking(() =>
-                SendAsync(command)).Should().Throw<ValidationException>();
+                SendAsync(command)).Should().ThrowAsync<ValidationException>();
         }
 
         [Test]
@@ -34,8 +34,8 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
                 Title = "Shopping"
             };
 
-            FluentActions.Invoking(() =>
-                SendAsync(command)).Should().Throw<ValidationException>();
+            await FluentActions.Invoking(() =>
+                SendAsync(command)).Should().ThrowAsync<ValidationException>();
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
             list.Should().NotBeNull();
             list.Title.Should().Be(command.Title);
             list.CreatedBy.Should().Be(userId);
-            list.Created.Should().BeCloseTo(DateTime.Now, 10000);
+            list.Created.Should().BeCloseTo(DateTime.Now, new TimeSpan(0, 0, 0, 5));
         }
     }
 }

@@ -1,14 +1,14 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
-using CleanArchitecture.Application.TodoItems.Commands.CreateTodoItem;
-using CleanArchitecture.Application.TodoItems.Commands.UpdateTodoItem;
-using CleanArchitecture.Application.TodoLists.Commands.CreateTodoList;
-using CleanArchitecture.Domain.Entities;
-using FluentAssertions;
+﻿using System;
 using System.Threading.Tasks;
+using FluentAssertions;
+using GiraffeMissile.Application.Common.Exceptions;
+using GiraffeMissile.Application.TodoItems.Commands.CreateTodoItem;
+using GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItem;
+using GiraffeMissile.Application.TodoLists.Commands.CreateTodoList;
+using GiraffeMissile.Domain.Entities;
 using NUnit.Framework;
-using System;
 
-namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
+namespace GiraffeMissile.Application.IntegrationTests.TodoItems.Commands
 {
     using static Testing;
 
@@ -24,7 +24,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
             };
 
             FluentActions.Invoking(() =>
-                SendAsync(command)).Should().Throw<NotFoundException>();
+                SendAsync(command)).Should().ThrowAsync<NotFoundException>();
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
             item.LastModifiedBy.Should().NotBeNull();
             item.LastModifiedBy.Should().Be(userId);
             item.LastModified.Should().NotBeNull();
-            item.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
+            item.LastModified.Should().BeCloseTo(DateTime.Now, new TimeSpan(0, 0, 0, 5));
         }
     }
 }

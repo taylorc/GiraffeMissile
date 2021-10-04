@@ -1,17 +1,17 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Domain.Common;
-using CleanArchitecture.Domain.Entities;
-using CleanArchitecture.Infrastructure.Identity;
+﻿using System.Linq;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
+using GiraffeMissile.Application.Common.Interfaces;
+using GiraffeMissile.Domain.Common;
+using GiraffeMissile.Domain.Entities;
+using GiraffeMissile.Infrastructure.Identity;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using System.Linq;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace CleanArchitecture.Infrastructure.Persistence
+namespace GiraffeMissile.Infrastructure.Persistence
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, IApplicationDbContext
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace CleanArchitecture.Application.Common.Mappings
+namespace GiraffeMissile.Application.Common.Mappings
 {
     public interface IMapFrom<T>
     {   

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CleanArchitecture.Domain.Common
+namespace GiraffeMissile.Domain.Common
 {
     public abstract class AuditableEntity
     {
