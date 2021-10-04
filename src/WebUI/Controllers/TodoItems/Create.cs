@@ -10,13 +10,13 @@ namespace GiraffeMissile.WebUI.Controllers.TodoItems
 {
     
     [Route("todoitems")]
-    public class TodoItemsCreateEndpoint: BaseAsyncEndpoint
+    public class Create: BaseAsyncEndpoint
         .WithRequest<CreateTodoItemCommand>
         .WithResponse<int>
     {
         private readonly ISender _sender;
 
-        public TodoItemsCreateEndpoint(ISender sender)
+        public Create(ISender sender)
         {
             _sender = sender;
         }

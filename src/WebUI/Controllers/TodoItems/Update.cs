@@ -9,19 +9,19 @@ namespace GiraffeMissile.WebUI.Controllers.TodoItems
 {
     
     [Route("todoitems")]
-    public class TodoItemsUpdateItemDetailsEndpoint : BaseAsyncEndpoint
-        .WithRequest<TodoItemDetailUpdateDto>
+    public class Update: BaseAsyncEndpoint
+        .WithRequest<UpdateTodoItemDto>
         .WithoutResponse
     {
         private readonly ISender _sender;
 
-        public TodoItemsUpdateItemDetailsEndpoint(ISender sender)
+        public Update(ISender sender)
         {
             _sender = sender;
         }
 
-        [HttpPut("UpdateItemDetails/{id}"), OpenApiOperation("TodoItems_UpdateItemDetails", "Updates a Todo Item Detail", "Updates a Todo Item Detail"), OpenApiTags("TodoItems")]
-        public override async Task<ActionResult> HandleAsync([FromRoute] TodoItemDetailUpdateDto request,
+        [HttpPut("{id}"), OpenApiOperation("TodoItems_Update", "Updates a Todo Item", "Updates a Todo Item"), OpenApiTags("TodoItems")]
+        public override async Task<ActionResult> HandleAsync([FromRoute]UpdateTodoItemDto request,
             CancellationToken cancellationToken = new CancellationToken())
         {
             var id = request.Id;
@@ -36,5 +36,7 @@ namespace GiraffeMissile.WebUI.Controllers.TodoItems
 
             return NoContent();
         }
+
+
     }
 }

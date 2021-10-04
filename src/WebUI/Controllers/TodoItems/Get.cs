@@ -11,13 +11,13 @@ namespace GiraffeMissile.WebUI.Controllers.TodoItems
 {
     
     [Route("todoitems")]
-    public class TodoItemsGetEndpoint: BaseAsyncEndpoint
+    public class Get: BaseAsyncEndpoint
         .WithRequest<GetTodoItemsWithPaginationQuery>
         .WithResponse<PaginatedList<TodoItemBriefDto>>
     {
         private readonly ISender _sender;
 
-        public TodoItemsGetEndpoint(ISender sender)
+        public Get(ISender sender)
         {
             _sender = sender;
         }

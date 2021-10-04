@@ -12,13 +12,13 @@ namespace GiraffeMissile.WebUI.Controllers.TodoItems
 {
     
     [Route("todoitems")]
-    public class TodoItemsDeleteEndpoint: BaseAsyncEndpoint
+    public class Delete: BaseAsyncEndpoint
         .WithRequest<int>
         .WithoutResponse
     {
         private readonly ISender _sender;
 
-        public TodoItemsDeleteEndpoint(ISender sender)
+        public Delete(ISender sender)
         {
             _sender = sender;
         }

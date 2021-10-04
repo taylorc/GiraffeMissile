@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GiraffeMissile.WebUI.Controllers.TodoItems
 {
-    public class TodoItemUpdateDto
+    public class UpdateTodoItemDto
     {
         [FromRoute(Name="id")]public int Id { get; set; }
         [FromBody]public UpdateTodoItemCommand Command { get; set; }       
