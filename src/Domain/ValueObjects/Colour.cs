@@ -1,9 +1,9 @@
-﻿using CleanArchitecture.Domain.Common;
-using CleanArchitecture.Domain.Exceptions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using GiraffeMissile.Domain.Common;
+using GiraffeMissile.Domain.Exceptions;
 
-namespace CleanArchitecture.Domain.ValueObjects
+namespace GiraffeMissile.Domain.ValueObjects
 {
     public class Colour : ValueObject
     {

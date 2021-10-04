@@ -1,8 +1,8 @@
-﻿using CleanArchitecture.Domain.Common;
-using CleanArchitecture.Domain.ValueObjects;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using GiraffeMissile.Domain.Common;
+using GiraffeMissile.Domain.ValueObjects;
 
-namespace CleanArchitecture.Domain.Entities
+namespace GiraffeMissile.Domain.Entities
 {
     public class TodoList : AuditableEntity
     {

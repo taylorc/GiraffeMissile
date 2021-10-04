@@ -1,10 +1,10 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Domain.Entities;
+﻿using GiraffeMissile.Application.Common.Interfaces;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using GiraffeMissile.Domain.Entities;
 
-namespace CleanArchitecture.Application.TodoLists.Commands.CreateTodoList
+namespace GiraffeMissile.Application.TodoLists.Commands.CreateTodoList
 {
     public class CreateTodoListCommand : IRequest<int>
     {

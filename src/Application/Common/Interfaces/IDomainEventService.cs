@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Domain.Common;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using GiraffeMissile.Domain.Common;
 
-namespace CleanArchitecture.Application.Common.Interfaces
+namespace GiraffeMissile.Application.Common.Interfaces
 {
     public interface IDomainEventService
     {

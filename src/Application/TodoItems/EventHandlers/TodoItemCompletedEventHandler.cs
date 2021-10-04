@@ -1,11 +1,11 @@
-﻿using CleanArchitecture.Application.Common.Models;
-using CleanArchitecture.Domain.Events;
+﻿using GiraffeMissile.Application.Common.Models;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System.Threading;
 using System.Threading.Tasks;
+using GiraffeMissile.Domain.Events;
 
-namespace CleanArchitecture.Application.TodoItems.EventHandlers
+namespace GiraffeMissile.Application.TodoItems.EventHandlers
 {
     public class TodoItemCompletedEventHandler : INotificationHandler<DomainEventNotification<TodoItemCompletedEvent>>
     {

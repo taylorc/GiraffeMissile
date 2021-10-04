@@ -1,9 +1,9 @@
-using CleanArchitecture.Application;
-using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Infrastructure;
-using CleanArchitecture.Infrastructure.Persistence;
-using CleanArchitecture.WebUI.Filters;
-using CleanArchitecture.WebUI.Services;
+using GiraffeMissile.Application;
+using GiraffeMissile.Application.Common.Interfaces;
+using GiraffeMissile.Infrastructure;
+using GiraffeMissile.Infrastructure.Persistence;
+using GiraffeMissile.WebUI.Filters;
+using GiraffeMissile.WebUI.Services;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,8 +15,10 @@ using Microsoft.Extensions.Hosting;
 using NSwag;
 using NSwag.Generation.Processors.Security;
 using System.Linq;
+using GiraffeMissile.Infrastructure;
+using GiraffeMissile.Infrastructure.Persistence;
 
-namespace CleanArchitecture.WebUI
+namespace GiraffeMissile.WebUI
 {
     public class Startup
     {

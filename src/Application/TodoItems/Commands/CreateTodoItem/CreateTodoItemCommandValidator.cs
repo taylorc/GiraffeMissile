@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CleanArchitecture.Application.TodoItems.Commands.CreateTodoItem
+namespace GiraffeMissile.Application.TodoItems.Commands.CreateTodoItem
 {
     public class CreateTodoItemCommandValidator : AbstractValidator<CreateTodoItemCommand>
     {

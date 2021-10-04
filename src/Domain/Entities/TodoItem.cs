@@ -1,10 +1,10 @@
-﻿using CleanArchitecture.Domain.Common;
-using CleanArchitecture.Domain.Enums;
-using CleanArchitecture.Domain.Events;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using GiraffeMissile.Domain.Common;
+using GiraffeMissile.Domain.Enums;
+using GiraffeMissile.Domain.Events;
 
-namespace CleanArchitecture.Domain.Entities
+namespace GiraffeMissile.Domain.Entities
 {
     public class TodoItem : AuditableEntity, IHasDomainEvent
     {

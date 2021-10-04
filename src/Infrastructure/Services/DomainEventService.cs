@@ -1,12 +1,12 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Application.Common.Models;
-using CleanArchitecture.Domain.Common;
+﻿using System;
+using System.Threading.Tasks;
+using GiraffeMissile.Application.Common.Interfaces;
+using GiraffeMissile.Application.Common.Models;
+using GiraffeMissile.Domain.Common;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Threading.Tasks;
 
-namespace CleanArchitecture.Infrastructure.Services
+namespace GiraffeMissile.Infrastructure.Services
 {
     public class DomainEventService : IDomainEventService
     {

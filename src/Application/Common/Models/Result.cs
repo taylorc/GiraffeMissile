@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace CleanArchitecture.Application.Common.Models
+namespace GiraffeMissile.Application.Common.Models
 {
     public class Result
     {

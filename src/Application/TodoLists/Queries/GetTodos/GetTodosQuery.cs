@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Application.Common.Security;
-using CleanArchitecture.Domain.Enums;
+using GiraffeMissile.Application.Common.Interfaces;
+using GiraffeMissile.Application.Common.Security;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using GiraffeMissile.Domain.Enums;
 
-namespace CleanArchitecture.Application.TodoLists.Queries.GetTodos
+namespace GiraffeMissile.Application.TodoLists.Queries.GetTodos
 {
     public class GetTodosQuery : IRequest<TodosVm>
     {

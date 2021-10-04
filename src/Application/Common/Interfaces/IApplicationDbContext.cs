@@ -1,9 +1,9 @@
-﻿using CleanArchitecture.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
+using GiraffeMissile.Domain.Entities;
 
-namespace CleanArchitecture.Application.Common.Interfaces
+namespace GiraffeMissile.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {

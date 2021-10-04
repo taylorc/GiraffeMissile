@@ -2,6 +2,8 @@
 //using Microsoft.AspNetCore.Mvc;
 //using Microsoft.Extensions.Logging;
 
+namespace GiraffeMissile.WebUI.Controllers
+{
 //namespace CleanArchitecture.WebUI.Controllers
 //{
 //    [ApiExplorerSettings(IgnoreApi = true)]
@@ -25,3 +27,4 @@
 //        }
 //    }
 //}
+}

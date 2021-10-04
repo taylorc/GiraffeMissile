@@ -1,13 +1,13 @@
-﻿using CleanArchitecture.Application.TodoLists.Commands.CreateTodoList;
-using CleanArchitecture.Application.TodoLists.Commands.DeleteTodoList;
-using CleanArchitecture.Application.TodoLists.Commands.UpdateTodoList;
-using CleanArchitecture.Application.TodoLists.Queries.ExportTodos;
-using CleanArchitecture.Application.TodoLists.Queries.GetTodos;
+﻿using GiraffeMissile.Application.TodoLists.Commands.CreateTodoList;
+using GiraffeMissile.Application.TodoLists.Commands.DeleteTodoList;
+using GiraffeMissile.Application.TodoLists.Commands.UpdateTodoList;
+using GiraffeMissile.Application.TodoLists.Queries.ExportTodos;
+using GiraffeMissile.Application.TodoLists.Queries.GetTodos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.WebUI.Controllers
+namespace GiraffeMissile.WebUI.Controllers
 {
     [Authorize]
     public class TodoListsController : ApiControllerBase

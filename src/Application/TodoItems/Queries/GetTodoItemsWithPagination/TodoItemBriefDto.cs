@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Application.Common.Mappings;
-using CleanArchitecture.Domain.Entities;
+﻿using GiraffeMissile.Application.Common.Mappings;
+using GiraffeMissile.Domain.Entities;
 
-namespace CleanArchitecture.Application.TodoItems.Queries.GetTodoItemsWithPagination
+namespace GiraffeMissile.Application.TodoItems.Queries.GetTodoItemsWithPagination
 {
     public class TodoItemBriefDto : IMapFrom<TodoItem>
     {

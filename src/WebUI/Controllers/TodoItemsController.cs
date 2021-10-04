@@ -1,14 +1,14 @@
-﻿using CleanArchitecture.Application.Common.Models;
-using CleanArchitecture.Application.TodoItems.Commands.CreateTodoItem;
-using CleanArchitecture.Application.TodoItems.Commands.DeleteTodoItem;
-using CleanArchitecture.Application.TodoItems.Commands.UpdateTodoItem;
-using CleanArchitecture.Application.TodoItems.Commands.UpdateTodoItemDetail;
-using CleanArchitecture.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+﻿using GiraffeMissile.Application.Common.Models;
+using GiraffeMissile.Application.TodoItems.Commands.CreateTodoItem;
+using GiraffeMissile.Application.TodoItems.Commands.DeleteTodoItem;
+using GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItem;
+using GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItemDetail;
+using GiraffeMissile.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.WebUI.Controllers
+namespace GiraffeMissile.WebUI.Controllers
 {
     [Authorize]
     public class TodoItemsController : ApiControllerBase

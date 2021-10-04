@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
+﻿using GiraffeMissile.Application.Common.Exceptions;
 using FluentAssertions;
 using FluentValidation.Results;
 using NUnit.Framework;

@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Application.Common.Interfaces
+﻿namespace GiraffeMissile.Application.Common.Interfaces
 {
     public interface ICurrentUserService
     {

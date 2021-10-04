@@ -1,8 +1,8 @@
-﻿using CleanArchitecture.Application.TodoLists.Queries.ExportTodos;
+﻿using System.Globalization;
 using CsvHelper.Configuration;
-using System.Globalization;
+using GiraffeMissile.Application.TodoLists.Queries.ExportTodos;
 
-namespace CleanArchitecture.Infrastructure.Files.Maps
+namespace GiraffeMissile.Infrastructure.Files.Maps
 {
     public class TodoItemRecordMap : ClassMap<TodoItemRecord>
     {

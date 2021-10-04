@@ -1,11 +1,11 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Domain.Entities;
-using CleanArchitecture.Domain.Events;
+﻿using GiraffeMissile.Application.Common.Interfaces;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using GiraffeMissile.Domain.Entities;
+using GiraffeMissile.Domain.Events;
 
-namespace CleanArchitecture.Application.TodoItems.Commands.CreateTodoItem
+namespace GiraffeMissile.Application.TodoItems.Commands.CreateTodoItem
 {
     public class CreateTodoItemCommand : IRequest<int>
     {

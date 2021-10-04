@@ -1,14 +1,14 @@
-﻿using CleanArchitecture.Application.Common.Exceptions;
-using CleanArchitecture.Application.TodoItems.Commands.CreateTodoItem;
-using CleanArchitecture.Application.TodoItems.Commands.UpdateTodoItem;
-using CleanArchitecture.Application.TodoItems.Commands.UpdateTodoItemDetail;
-using CleanArchitecture.Application.TodoLists.Commands.CreateTodoList;
-using CleanArchitecture.Domain.Entities;
-using CleanArchitecture.Domain.Enums;
+﻿using GiraffeMissile.Application.Common.Exceptions;
+using GiraffeMissile.Application.TodoItems.Commands.CreateTodoItem;
+using GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItem;
+using GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItemDetail;
+using GiraffeMissile.Application.TodoLists.Commands.CreateTodoList;
 using FluentAssertions;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using System;
+using GiraffeMissile.Domain.Entities;
+using GiraffeMissile.Domain.Enums;
 
 namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
 {

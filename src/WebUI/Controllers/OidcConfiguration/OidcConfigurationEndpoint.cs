@@ -6,7 +6,7 @@ using System.Threading;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.Extensions.Logging;
 
-namespace CleanArchitecture.WebUI.Controllers.OidcConfiguration
+namespace GiraffeMissile.WebUI.Controllers.OidcConfiguration
 {
     [ApiExplorerSettings(IgnoreApi = true)]
     public class OidcConfigurationEndpoint : BaseEndpoint
