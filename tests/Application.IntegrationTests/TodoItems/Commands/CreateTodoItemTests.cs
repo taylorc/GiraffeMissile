@@ -19,7 +19,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
             var command = new CreateTodoItemCommand();
 
             FluentActions.Invoking(() =>
-                SendAsync(command)).Should().Throw<ValidationException>();
+                SendAsync(command)).Should().ThrowAsync<ValidationException>();
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
             item.ListId.Should().Be(command.ListId);
             item.Title.Should().Be(command.Title);
             item.CreatedBy.Should().Be(userId);
-            item.Created.Should().BeCloseTo(DateTime.Now, 10000);
+            item.Created.Should().BeCloseTo(DateTime.Now, new TimeSpan(0,0,0,5));
             item.LastModifiedBy.Should().BeNull();
             item.LastModified.Should().BeNull();
         }

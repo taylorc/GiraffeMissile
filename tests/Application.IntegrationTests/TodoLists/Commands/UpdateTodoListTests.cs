@@ -23,7 +23,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
             };
 
             FluentActions.Invoking(() =>
-                SendAsync(command)).Should().Throw<NotFoundException>();
+                SendAsync(command)).Should().ThrowAsync<NotFoundException>();
         }
 
         [Test]
@@ -45,10 +45,10 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
                 Title = "Other List"
             };
 
-            FluentActions.Invoking(() =>
-                SendAsync(command))
-                    .Should().Throw<ValidationException>().Where(ex => ex.Errors.ContainsKey("Title"))
-                    .And.Errors["Title"].Should().Contain("The specified title already exists.");
+            var error = await FluentActions.Invoking(() =>
+                SendAsync(command)).Should().ThrowAsync<ValidationException>().Where(ex => ex.Errors.ContainsKey("Title"));
+
+            error.And.Errors["Title"].Should().Contain("The specified title already exists.");
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace CleanArchitecture.Application.IntegrationTests.TodoLists.Commands
             list.LastModifiedBy.Should().NotBeNull();
             list.LastModifiedBy.Should().Be(userId);
             list.LastModified.Should().NotBeNull();
-            list.LastModified.Should().BeCloseTo(DateTime.Now, 1000);
+            list.LastModified.Should().BeCloseTo(DateTime.Now, new TimeSpan(0, 0, 0, 5));
         }
     }
 }
