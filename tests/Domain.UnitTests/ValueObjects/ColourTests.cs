@@ -3,7 +3,7 @@ using GiraffeMissile.Domain.Exceptions;
 using GiraffeMissile.Domain.ValueObjects;
 using NUnit.Framework;
 
-namespace CleanArchitecture.Domain.UnitTests.ValueObjects
+namespace GiraffeMissile.CleanArchitecture.Domain.UnitTests.ValueObjects
 {
     public class ColourTests
     {

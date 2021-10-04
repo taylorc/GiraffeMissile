@@ -1,11 +1,11 @@
-﻿using GiraffeMissile.Application.Common.Exceptions;
+﻿using System;
+using System.Collections.Generic;
 using FluentAssertions;
 using FluentValidation.Results;
+using GiraffeMissile.Application.Common.Exceptions;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 
-namespace CleanArchitecture.Application.UnitTests.Common.Exceptions
+namespace GiraffeMissile.Application.UnitTests.Common.Exceptions
 {
     public class ValidationExceptionTests
     {

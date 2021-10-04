@@ -1,13 +1,13 @@
-﻿using GiraffeMissile.Application.Common.Exceptions;
+﻿using System;
+using System.Threading.Tasks;
+using FluentAssertions;
+using GiraffeMissile.Application.Common.Exceptions;
 using GiraffeMissile.Application.TodoItems.Commands.CreateTodoItem;
 using GiraffeMissile.Application.TodoLists.Commands.CreateTodoList;
-using FluentAssertions;
-using NUnit.Framework;
-using System;
-using System.Threading.Tasks;
 using GiraffeMissile.Domain.Entities;
+using NUnit.Framework;
 
-namespace CleanArchitecture.Application.IntegrationTests.TodoItems.Commands
+namespace GiraffeMissile.Application.IntegrationTests.TodoItems.Commands
 {
     using static Testing;
 

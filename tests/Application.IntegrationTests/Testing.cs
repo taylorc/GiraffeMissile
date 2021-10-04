@@ -3,9 +3,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using GiraffeMissile.Application.Common.Interfaces;
-using GiraffeMissile.WebUI;
 using GiraffeMissile.Infrastructure.Identity;
 using GiraffeMissile.Infrastructure.Persistence;
+using GiraffeMissile.WebUI;
 using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -16,7 +16,7 @@ using Moq;
 using NUnit.Framework;
 using Respawn;
 
-namespace CleanArchitecture.Application.IntegrationTests
+namespace GiraffeMissile.Application.IntegrationTests
 {
     [SetUpFixture]
     public class Testing
