@@ -360,7 +360,7 @@ export class WeatherForecastClient implements IWeatherForecastClient {
     }
 }
 
-export interface IClient {
+export interface ITodoItemsClient {
     /**
      * Creates a Todo Item
      */
@@ -380,13 +380,13 @@ export interface IClient {
     /**
      * Updates a Todo Item Detail
      */
-    updateItemDetail(id: number, command: UpdateTodoItemDetailCommand): Observable<FileResponse>;
+    updateItemDetails(id: number, command: UpdateTodoItemDetailCommand): Observable<FileResponse>;
 }
 
 @Injectable({
     providedIn: 'root'
 })
-export class Client implements IClient {
+export class TodoItemsClient implements ITodoItemsClient {
     private http: HttpClient;
     private baseUrl: string;
     protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
@@ -617,7 +617,7 @@ export class Client implements IClient {
     /**
      * Updates a Todo Item Detail
      */
-    updateItemDetail(id: number, command: UpdateTodoItemDetailCommand): Observable<FileResponse> {
+    updateItemDetails(id: number, command: UpdateTodoItemDetailCommand): Observable<FileResponse> {
         let url_ = this.baseUrl + "/todoitems/UpdateItemDetails/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -637,11 +637,11 @@ export class Client implements IClient {
         };
 
         return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processUpdateItemDetail(response_);
+            return this.processUpdateItemDetails(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processUpdateItemDetail(<any>response_);
+                    return this.processUpdateItemDetails(<any>response_);
                 } catch (e) {
                     return <Observable<FileResponse>><any>_observableThrow(e);
                 }
@@ -650,7 +650,7 @@ export class Client implements IClient {
         }));
     }
 
-    protected processUpdateItemDetail(response: HttpResponseBase): Observable<FileResponse> {
+    protected processUpdateItemDetails(response: HttpResponseBase): Observable<FileResponse> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :

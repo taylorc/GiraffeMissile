@@ -219,7 +219,7 @@
         ],
         "summary": "Creates a Todo Item",
         "description": "Creates a Todo Item",
-        "operationId": "Create",
+        "operationId": "TodoItems_Create",
         "requestBody": {
           "x-name": "request",
           "content": {
@@ -254,7 +254,7 @@
         ],
         "summary": "Deletes a Todo Item",
         "description": "Deletes a Todo Item",
-        "operationId": "Delete",
+        "operationId": "TodoItems_Delete",
         "parameters": [
           {
             "name": "id",
@@ -287,7 +287,7 @@
         ],
         "summary": "Updates a Todo Item",
         "description": "Updates a Todo Item",
-        "operationId": "Update",
+        "operationId": "TodoItems_Update",
         "parameters": [
           {
             "name": "id",
@@ -334,7 +334,7 @@
         ],
         "summary": "Gets a Todo Item",
         "description": "Gets a Todo Item",
-        "operationId": "GetTodoItemsWithPagination",
+        "operationId": "TodoItems_GetTodoItemsWithPagination",
         "requestBody": {
           "x-name": "request",
           "content": {
@@ -368,7 +368,7 @@
         ],
         "summary": "Updates a Todo Item Detail",
         "description": "Updates a Todo Item Detail",
-        "operationId": "UpdateItemDetail",
+        "operationId": "TodoItems_UpdateItemDetails",
         "parameters": [
           {
             "name": "id",

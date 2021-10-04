@@ -8,7 +8,7 @@ using NSwag.Annotations;
 
 namespace GiraffeMissile.WebUI.Controllers.TodoItems
 {
-    [OpenApiController("TodoItems")]
+    
     [Route("todoitems")]
     public class TodoItemsCreateEndpoint: BaseAsyncEndpoint
         .WithRequest<CreateTodoItemCommand>
@@ -21,7 +21,7 @@ namespace GiraffeMissile.WebUI.Controllers.TodoItems
             _sender = sender;
         }
 
-        [HttpPost, OpenApiOperation("Create", "Creates a Todo Item", "Creates a Todo Item"), OpenApiTags("TodoItems")]
+        [HttpPost, OpenApiOperation("TodoItems_Create", "Creates a Todo Item", "Creates a Todo Item"), OpenApiTags("TodoItems")]
         public override async Task<ActionResult<int>> HandleAsync([FromBody]CreateTodoItemCommand request,
             CancellationToken cancellationToken = new CancellationToken())
         {

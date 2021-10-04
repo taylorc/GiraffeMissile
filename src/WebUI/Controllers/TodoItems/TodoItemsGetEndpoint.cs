@@ -9,7 +9,7 @@ using NSwag.Annotations;
 
 namespace GiraffeMissile.WebUI.Controllers.TodoItems
 {
-    [OpenApiController("TodoItems")]
+    
     [Route("todoitems")]
     public class TodoItemsGetEndpoint: BaseAsyncEndpoint
         .WithRequest<GetTodoItemsWithPaginationQuery>
@@ -22,7 +22,7 @@ namespace GiraffeMissile.WebUI.Controllers.TodoItems
             _sender = sender;
         }
 
-        [HttpGet("GetTodoItemsWithPagination"), OpenApiOperation("GetTodoItemsWithPagination", "Gets a Todo Item", "Gets a Todo Item"), OpenApiTags("TodoItems")]
+        [HttpGet("GetTodoItemsWithPagination"), OpenApiOperation("TodoItems_GetTodoItemsWithPagination", "Gets a Todo Item", "Gets a Todo Item"), OpenApiTags("TodoItems")]
         public override async Task<ActionResult<PaginatedList<TodoItemBriefDto>>> HandleAsync([FromBody]GetTodoItemsWithPaginationQuery request,
             CancellationToken cancellationToken = new CancellationToken())
         {
