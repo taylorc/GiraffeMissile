@@ -42,7 +42,7 @@ namespace GiraffeMissile.Application.IntegrationTests
 
             services.AddSingleton(Mock.Of<IWebHostEnvironment>(w =>
                 w.EnvironmentName == "Development" &&
-                w.ApplicationName == "CleanArchitecture.WebUI"));
+                w.ApplicationName == "GiraffeMissile.WebUI"));
 
             services.AddLogging();
 
