@@ -13,22 +13,23 @@ namespace GiraffeMissile.Application.TodoLists.Commands.CreateTodoList
 
     public class CreateTodoListCommandHandler : IRequestHandler<CreateTodoListCommand, int>
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IRepository<TodoList> _repo;
 
-        public CreateTodoListCommandHandler(IApplicationDbContext context)
+        public CreateTodoListCommandHandler(IRepository<TodoList> repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         public async Task<int> Handle(CreateTodoListCommand request, CancellationToken cancellationToken)
         {
-            var entity = new TodoList();
+            var entity = new TodoList
+            {
+                Title = request.Title
+            };
 
-            entity.Title = request.Title;
+            await _repo.AddAsync(entity, cancellationToken);
 
-            _context.TodoLists.Add(entity);
-
-            await _context.SaveChangesAsync(cancellationToken);
+            await _repo.SaveChangesAsync(cancellationToken);
 
             return entity.Id;
         }

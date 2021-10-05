@@ -6,6 +6,8 @@ using AutoMapper.QueryableExtensions;
 using GiraffeMissile.Application.Common.Interfaces;
 using GiraffeMissile.Application.Common.Mappings;
 using GiraffeMissile.Application.Common.Models;
+using GiraffeMissile.Application.Specifications;
+using GiraffeMissile.Domain.Entities;
 using MediatR;
 
 namespace GiraffeMissile.Application.TodoItems.Queries.GetTodoItemsWithPagination
@@ -19,22 +21,18 @@ namespace GiraffeMissile.Application.TodoItems.Queries.GetTodoItemsWithPaginatio
 
     public class GetTodoItemsWithPaginationQueryHandler : IRequestHandler<GetTodoItemsWithPaginationQuery, PaginatedList<TodoItemBriefDto>>
     {
-        private readonly IApplicationDbContext _context;
-        private readonly IMapper _mapper;
+        private readonly IRepository<TodoItem> _repository;
 
-        public GetTodoItemsWithPaginationQueryHandler(IApplicationDbContext context, IMapper mapper)
+        public GetTodoItemsWithPaginationQueryHandler(IRepository<TodoItem> repository)
         {
-            _context = context;
-            _mapper = mapper;
+            _repository = repository;
         }
 
         public async Task<PaginatedList<TodoItemBriefDto>> Handle(GetTodoItemsWithPaginationQuery request, CancellationToken cancellationToken)
         {
-            return await _context.TodoItems
-                .Where(x => x.ListId == request.ListId)
-                .OrderBy(x => x.Title)
-                .ProjectTo<TodoItemBriefDto>(_mapper.ConfigurationProvider)
-                .PaginatedListAsync(request.PageNumber, request.PageSize);
+            return await _repository.PaginatedListAsync<TodoItemBriefDto>(
+                new TodoItemsByListIdOrderedByTitleAscSpecification(request.ListId), request.PageNumber,
+                request.PageSize, cancellationToken);
         }
     }
 }

@@ -3,6 +3,7 @@ using GiraffeMissile.Application.Common.Interfaces;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using Ardalis.Specification;
 using GiraffeMissile.Domain.Entities;
 
 namespace GiraffeMissile.Application.TodoItems.Commands.DeleteTodoItem
@@ -14,25 +15,25 @@ namespace GiraffeMissile.Application.TodoItems.Commands.DeleteTodoItem
 
     public class DeleteTodoItemCommandHandler : IRequestHandler<DeleteTodoItemCommand>
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IRepository<TodoItem> _repository;
 
-        public DeleteTodoItemCommandHandler(IApplicationDbContext context)
+        public DeleteTodoItemCommandHandler(IRepository<TodoItem> repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public async Task<Unit> Handle(DeleteTodoItemCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.TodoItems.FindAsync(request.Id);
+            var entity = await _repository.GetByIdAsync(request.Id, cancellationToken);
 
             if (entity == null)
             {
                 throw new NotFoundException(nameof(TodoItem), request.Id);
             }
 
-            _context.TodoItems.Remove(entity);
+            await _repository.DeleteAsync(entity, cancellationToken);
 
-            await _context.SaveChangesAsync(cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
         }

@@ -1,7 +1,8 @@
-﻿using GiraffeMissile.Application.Common.Interfaces;
-using MediatR;
+﻿using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using Ardalis.Specification;
+using GiraffeMissile.Application.Common.Interfaces;
 using GiraffeMissile.Domain.Entities;
 using GiraffeMissile.Domain.Events;
 
@@ -16,11 +17,11 @@ namespace GiraffeMissile.Application.TodoItems.Commands.CreateTodoItem
 
     public class CreateTodoItemCommandHandler : IRequestHandler<CreateTodoItemCommand, int>
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IRepository<TodoItem> _repository;
 
-        public CreateTodoItemCommandHandler(IApplicationDbContext context)
+        public CreateTodoItemCommandHandler(IRepository<TodoItem> repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public async Task<int> Handle(CreateTodoItemCommand request, CancellationToken cancellationToken)
@@ -34,9 +35,9 @@ namespace GiraffeMissile.Application.TodoItems.Commands.CreateTodoItem
 
             entity.DomainEvents.Add(new TodoItemCreatedEvent(entity));
 
-            _context.TodoItems.Add(entity);
+            await _repository.AddAsync(entity, cancellationToken);
 
-            await _context.SaveChangesAsync(cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
 
             return entity.Id;
         }

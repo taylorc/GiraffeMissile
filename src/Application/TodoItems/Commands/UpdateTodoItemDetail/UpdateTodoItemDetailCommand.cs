@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GiraffeMissile.Domain.Entities;
 using GiraffeMissile.Domain.Enums;
+using Ardalis.Specification;
 
 namespace GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItemDetail
 {
@@ -21,16 +22,16 @@ namespace GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItemDetail
 
     public class UpdateTodoItemDetailCommandHandler : IRequestHandler<UpdateTodoItemDetailCommand>
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IRepository<TodoItem> _repository;
 
-        public UpdateTodoItemDetailCommandHandler(IApplicationDbContext context)
+        public UpdateTodoItemDetailCommandHandler(IRepository<TodoItem> repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public async Task<Unit> Handle(UpdateTodoItemDetailCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.TodoItems.FindAsync(request.Id);
+            var entity = await _repository.GetByIdAsync(request.Id, cancellationToken);
 
             if (entity == null)
             {
@@ -41,7 +42,7 @@ namespace GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItemDetail
             entity.Priority = request.Priority;
             entity.Note = request.Note;
 
-            await _context.SaveChangesAsync(cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
         }

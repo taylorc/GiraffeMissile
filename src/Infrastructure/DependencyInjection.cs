@@ -1,7 +1,9 @@
-﻿using GiraffeMissile.Application.Common.Interfaces;
+﻿using Ardalis.Specification;
+using GiraffeMissile.Application.Common.Interfaces;
 using GiraffeMissile.Infrastructure.Files;
 using GiraffeMissile.Infrastructure.Identity;
 using GiraffeMissile.Infrastructure.Persistence;
+using GiraffeMissile.Infrastructure.Persistence.Repositories;
 using GiraffeMissile.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
@@ -29,6 +31,8 @@ namespace GiraffeMissile.Infrastructure
             }
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddScoped<IDomainEventService, DomainEventService>();
 
