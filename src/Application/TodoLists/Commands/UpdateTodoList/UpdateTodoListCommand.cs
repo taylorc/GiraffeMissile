@@ -16,16 +16,16 @@ namespace GiraffeMissile.Application.TodoLists.Commands.UpdateTodoList
 
     public class UpdateTodoListCommandHandler : IRequestHandler<UpdateTodoListCommand>
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IRepository<TodoList> _repository;
 
-        public UpdateTodoListCommandHandler(IApplicationDbContext context)
+        public UpdateTodoListCommandHandler(IRepository<TodoList> repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public async Task<Unit> Handle(UpdateTodoListCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.TodoLists.FindAsync(request.Id);
+            var entity = await _repository.GetByIdAsync(request.Id, cancellationToken);
 
             if (entity == null)
             {
@@ -34,7 +34,7 @@ namespace GiraffeMissile.Application.TodoLists.Commands.UpdateTodoList
 
             entity.Title = request.Title;
 
-            await _context.SaveChangesAsync(cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
         }

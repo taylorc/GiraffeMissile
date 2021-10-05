@@ -1,5 +1,6 @@
 ﻿using GiraffeMissile.Application.Common.Interfaces;
 using GiraffeMissile.Application.Common.Security;
+using GiraffeMissile.Domain.Entities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,18 +15,18 @@ namespace GiraffeMissile.Application.TodoLists.Commands.PurgeTodoLists
 
     public class PurgeTodoListsCommandHandler : IRequestHandler<PurgeTodoListsCommand>
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IRepository<TodoList> _repository;
 
-        public PurgeTodoListsCommandHandler(IApplicationDbContext context)
+        public PurgeTodoListsCommandHandler(IRepository<TodoList> repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public async Task<Unit> Handle(PurgeTodoListsCommand request, CancellationToken cancellationToken)
         {
-            _context.TodoLists.RemoveRange(_context.TodoLists);
+            await _repository.DeleteRangeAsync(await _repository.ListAsync(cancellationToken), cancellationToken);
 
-            await _context.SaveChangesAsync(cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
         }

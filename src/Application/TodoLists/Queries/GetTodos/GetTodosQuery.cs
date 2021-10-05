@@ -8,7 +8,9 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using GiraffeMissile.Application.Specifications;
 using GiraffeMissile.Domain.Enums;
+using GiraffeMissile.Domain.Entities;
 
 namespace GiraffeMissile.Application.TodoLists.Queries.GetTodos
 {
@@ -18,12 +20,12 @@ namespace GiraffeMissile.Application.TodoLists.Queries.GetTodos
 
     public class GetTodosQueryHandler : IRequestHandler<GetTodosQuery, TodosVm>
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IRepository<TodoList> _repository;
         private readonly IMapper _mapper;
 
-        public GetTodosQueryHandler(IApplicationDbContext context, IMapper mapper)
+        public GetTodosQueryHandler(IRepository<TodoList> repository, IMapper mapper)
         {
-            _context = context;
+            _repository = repository;
             _mapper = mapper;
         }
 
@@ -33,14 +35,12 @@ namespace GiraffeMissile.Application.TodoLists.Queries.GetTodos
             {
                 PriorityLevels = Enum.GetValues(typeof(PriorityLevel))
                     .Cast<PriorityLevel>()
-                    .Select(p => new PriorityLevelDto { Value = (int)p, Name = p.ToString() })
+                    .Select(p => new PriorityLevelDto {Value = (int) p, Name = p.ToString()})
                     .ToList(),
 
-                Lists = await _context.TodoLists
-                    .AsNoTracking()
-                    .ProjectTo<TodoListDto>(_mapper.ConfigurationProvider)
-                    .OrderBy(t => t.Title)
-                    .ToListAsync(cancellationToken)
+                Lists = await _repository.ProjectedListAsync<TodoListDto>(new TodoListOrderedByTitleAscSpecification(),
+                    cancellationToken)
+
             };
         }
     }

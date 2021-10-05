@@ -4,6 +4,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using GiraffeMissile.Domain.Entities;
+using Ardalis.Specification;
 
 namespace GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItem
 {
@@ -18,16 +19,16 @@ namespace GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItem
 
     public class UpdateTodoItemCommandHandler : IRequestHandler<UpdateTodoItemCommand>
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IRepository<TodoItem> _repository;
 
-        public UpdateTodoItemCommandHandler(IApplicationDbContext context)
+        public UpdateTodoItemCommandHandler(IRepository<TodoItem> repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public async Task<Unit> Handle(UpdateTodoItemCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.TodoItems.FindAsync(request.Id);
+            var entity = await _repository.GetByIdAsync(request.Id, cancellationToken);
 
             if (entity == null)
             {
@@ -37,7 +38,7 @@ namespace GiraffeMissile.Application.TodoItems.Commands.UpdateTodoItem
             entity.Title = request.Title;
             entity.Done = request.Done;
 
-            await _context.SaveChangesAsync(cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
         }

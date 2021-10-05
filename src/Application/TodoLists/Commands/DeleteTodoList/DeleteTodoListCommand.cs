@@ -16,27 +16,25 @@ namespace GiraffeMissile.Application.TodoLists.Commands.DeleteTodoList
 
     public class DeleteTodoListCommandHandler : IRequestHandler<DeleteTodoListCommand>
     {
-        private readonly IApplicationDbContext _context;
+        private readonly IRepository<TodoList> _repository;
 
-        public DeleteTodoListCommandHandler(IApplicationDbContext context)
+        public DeleteTodoListCommandHandler(IRepository<TodoList> repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public async Task<Unit> Handle(DeleteTodoListCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.TodoLists
-                .Where(l => l.Id == request.Id)
-                .SingleOrDefaultAsync(cancellationToken);
+            var entity = await _repository.GetByIdAsync(request.Id, cancellationToken);
 
             if (entity == null)
             {
                 throw new NotFoundException(nameof(TodoList), request.Id);
             }
 
-            _context.TodoLists.Remove(entity);
+            await _repository.DeleteAsync(entity, cancellationToken);
 
-            await _context.SaveChangesAsync(cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
         }
