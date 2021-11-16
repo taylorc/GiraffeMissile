@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthorizeService } from "../../api-authorization/authorize.service";
+import { AuthorizeService } from "../../../core/service/authorize.service";
 
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 

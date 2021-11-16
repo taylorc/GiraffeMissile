@@ -1,9 +1,8 @@
 import { Component, TemplateRef } from '@angular/core';
-import { TodoItemsClient, CreateTodoItemCommand, TodoItemDto, UpdateTodoItemCommand,
-         TodosVm, TodoListsClient, TodoListDto, CreateTodoListCommand, UpdateTodoListCommand,
-         UpdateTodoItemDetailCommand } from '../web-api-client';
+
 import { faPlus, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { CreateTodoItemCommand, CreateTodoListCommand, UpdateTodoListCommand,TodoItemDto, TodoItemsClient, TodoListDto, TodoListsClient, TodosVm, UpdateTodoItemCommand, UpdateTodoItemDetailCommand } from 'src/app/data/service/web-api-client';
 
 @Component({
     selector: 'app-todo-component',

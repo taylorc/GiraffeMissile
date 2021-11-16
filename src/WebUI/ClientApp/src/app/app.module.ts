@@ -5,32 +5,28 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { TodoComponent } from './todo/todo.component';
-import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
-import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
+import { CounterComponent } from './module/counter/counter.component';
+import { AuthenticationModule } from 'src/app/module/authentication/authentication.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AppRoutingModule } from './app-routing.module';
-import { TokenComponent } from './token/token.component';
+import { AuthorizeInterceptor } from './core/interceptor/authorize.interceptor';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    TodoComponent,
-    TokenComponent
+    CounterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    ApiAuthorizationModule,
+    CoreModule,
+    AuthenticationModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ModalModule.forRoot()

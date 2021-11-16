@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorizeService } from '../authorize.service';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { AuthorizeService } from 'src/app/core/service/authorize.service';
 
 @Component({
   selector: 'app-login-menu',

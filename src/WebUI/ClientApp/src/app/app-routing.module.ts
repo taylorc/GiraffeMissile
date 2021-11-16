@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
-import { CounterComponent } from './counter/counter.component';
-import { HomeComponent } from './home/home.component';
-import { TodoComponent } from './todo/todo.component';
-import { TokenComponent } from './token/token.component';
+import { AuthorizeGuard } from './core/guard/authorize.guard';
+import { CounterComponent } from './module/counter/counter.component';
 
 export const routes: Routes = [
 
   { path: 'counter', component: CounterComponent },
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'todo', component: TodoComponent, canActivate: [AuthorizeGuard] },
-  { path: 'token', component: TokenComponent, canActivate: [AuthorizeGuard] }
+  { path: '', loadChildren: ()=>import('./module/home/home.module').then(x=>x.HomeModule) },
+  { path: 'todo', loadChildren: ()=>import('./module/todo/todo.module').then(x=>x.TodoModule), canActivate: [AuthorizeGuard] },
+  { path: 'token', loadChildren: ()=>import('./module/token/token.module').then(x=>x.TokenModule), canActivate: [AuthorizeGuard] }
 ];
 
 @NgModule({
