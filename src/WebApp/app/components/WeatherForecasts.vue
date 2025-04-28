@@ -5,14 +5,18 @@ interface WeatherForecast {
   temperatureF: number;
   summary: string;
 }
-const { data: weatherForecasts } = await useFetch<WeatherForecast[]>('https://localhost:5001/api/WeatherForecasts');
+
+const config = useRuntimeConfig();
+
+const { data: weatherForecasts, error: error } = await useAPIFetch<WeatherForecast[]>("/api/WeatherForecasts");
 
 console.log(weatherForecasts.value);
-console.log(import.meta.env)
+console.log(error.value);
 </script>
 <template>
   <div>
     HILO
+    {{ config.public.apiUrl }}
     <div v-if="weatherForecasts">
       <table>
         <thead>

@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   $development: {
     routeRules: {
       '/api/**': {
-        proxy: `${import.meta.env.ApiUrl}/**`,
+        proxy: `${process.env.ApiUrl}/**`,
       }
     },
     devServer: {
@@ -24,6 +24,7 @@ export default defineNuxtConfig({
       otelExporterOtlpHeaders: '',
       otelResourceAttributes: '',
       otelServiceName: '',
+      apiUrl: process.env.ApiUrl,
     }
   }
 })
