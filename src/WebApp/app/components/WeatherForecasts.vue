@@ -9,14 +9,9 @@ interface WeatherForecast {
 const config = useRuntimeConfig();
 
 const { data: weatherForecasts, error: error } = await useAPIFetch<WeatherForecast[]>("/api/WeatherForecasts");
-
-console.log(weatherForecasts.value);
-console.log(error.value);
 </script>
 <template>
   <div>
-    HILO
-    {{ config.public.apiUrl }}
     <div v-if="weatherForecasts">
       <table>
         <thead>
