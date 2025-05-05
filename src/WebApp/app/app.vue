@@ -1,5 +1,5 @@
 <template>
-  <div>
-    <WeatherForecasts />
-  </div>
+   <UApp>
+    <NuxtPage />
+  </UApp>
 </template>
