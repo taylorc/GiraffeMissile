@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   $development: {
     routeRules: {
       '/api/**': {
-        proxy: `${process.env.ApiUrl}/**`,
+        proxy: `${process.env.ApiUrl}/api/**`,
       }
     },
     devServer: {
