@@ -8,7 +8,7 @@ const now = useNow()
 </script>
 
 <template>
-  <div class="navbar mb-2 bg-neutral shadow-lg">
+  <div class="navbar mb-2 bg-blue-950 shadow-lg">
     <div class="navbar-start">
       <div class="dropdown z-[1000]">
         <label tabindex="0" class="btn-ghost btn-circle btn">
@@ -29,7 +29,7 @@ const now = useNow()
         </label>
         <ul
           tabindex="0"
-          class="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-base-100 p-2 shadow"
+          class="menu-compact dropdown-content menu rounded-box mt-3 w-52 bg-blue-950 p-2 shadow"
         >
           <li>
             <NuxtLink to="/" class="n-link-base font-poppins">
@@ -49,7 +49,7 @@ const now = useNow()
     </div>
     <div class="navbar-end">
       <!-- <button class="btn-ghost btn-circle btn" @click="themeStore.toggle"> -->
-        <button class="btn-ghost btn-circle btn" >
+        <!-- <button class="btn-ghost btn-circle btn" >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -65,7 +65,7 @@ const now = useNow()
             d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
           />
         </svg>
-      </button>
+      </button> -->
       <button class="btn-shape btn-ghost btn ml-8 mr-4">
         {{ now.toLocaleTimeString() }}
       </button>

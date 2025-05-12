@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import {useDateFormat} from "@vueuse/core";
+
 interface WeatherForecast {
   date: string;
   temperatureC: number;
@@ -14,7 +16,7 @@ const { data: weatherForecasts, error: error } = await useAPIFetch<WeatherForeca
   <div class="flex flex-col ">
     <div v-if="weatherForecasts" class>
       <table class="table-lg w-full text-left">
-        <thead class="bg-amber-800">
+        <thead class="bg-cyan-800">
         <tr>
           <th>Date</th>
           <th>Summary</th>
@@ -23,8 +25,8 @@ const { data: weatherForecasts, error: error } = await useAPIFetch<WeatherForeca
         </tr>
         </thead>
         <tbody >
-        <tr v-for="item in weatherForecasts" :key="item.date" class="odd:bg-amber-100 odd:text-black even:bg-amber-400">
-          <td>{{ item.date }}</td>
+        <tr v-for="item in weatherForecasts" :key="item.date" class="odd:bg-cyan-100 text-black even:bg-cyan-400">
+          <td>{{ useDateFormat(item.date, 'DD-MM-YYYY', { locales: 'en-AU' }) }}</td>
           <td>{{ item.summary }}</td>
           <td>{{ item.temperatureC }}</td>
           <td>{{ item.temperatureF }}</td>
